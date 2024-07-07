@@ -6,7 +6,12 @@
 <link rel="icon" href="icon.png" type="image/x-png" />
 <link rel="shortcut icon" href="icon.png" type="image/x-png" />
 <link href="style.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="https://alcdn.msauth.net/browser/2.35.0/js/msal-browser.min.js"></script> <!-- 官方示例代码是 MSAL 2.x 的，切换到 MSAL 3.x 无法使用 -->
+<script type="text/javascript" src="https://alcdn.msauth.net/browser/2.35.0/js/msal-browser.min.js"></script>
+<!--
+官方示例代码是 MSAL 2.x 的，切换到 MSAL 3.x 无法使用
+想迁移 v3 的自己看 https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/v2-migration.md
+找 v2 最新的自己看 https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/cdn-usage.md
+-->
 <script type="text/javascript" src="scripts/auth.js"></script>
 <script type="text/javascript" src="script.js"></script>
 </head>
@@ -22,8 +27,9 @@
 	<h3>使用方法</h3>
 	<ol class="howtouse">
 		<li>点击<span class="openbtn" title="不是点我，真的按钮在下面呢" onclick="document.getElementById('launchPicker').click();">从OneDrive选择文件</span>按钮，等待打开新窗口。</li>
-		<li>在新窗口中登陆OneDrive对应的账户并授予需要的权限。</li>
-		<li>进入OneDrive“公开”文件夹内选择需要获取直链的文件（同一文件夹内可多选），点击打开。</li>
+		<li>第一次可能被浏览器广告拦截阻断，需要手动允许浏览器打开新窗口。</li>
+		<li>在新窗口中登陆 OneDrive 对应的账户并授予需要的权限。</li>
+		<li>进入 OneDrive “公开”文件夹内选择需要获取直链的文件（同一文件夹内可多选），点击打开。<a href="#no-public">没有“公开”怎么办</a></li>
 		<li>选择需要输出的掩码格式，输出面板内会自动生成对应的格式。</li>
 	</ol>
 	<div class="splitContainer">
@@ -51,7 +57,7 @@
 	<h3>F&amp;Q</h3>
 	<dl>
 		<dt>如何书写掩码？</dt>
-		<dd>使用 ES6 原生<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/template_strings">模板字符串</a> ${表达式} 书写方式。
+		<dd>使用 ES6 原生<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Template_literals">模板字符串</a> ${表达式} 书写方式。
 			“file”表示该文件信息，“index”表示在获取列表中的序号，具体的JSON对象会在获取数据后发送到控制台（或查看全局变量 redata ），需要更多信息的的自己去看吧。</dd>
 		<dt>为什么这个应用必须要在https下运行？</dt>
 		<dd>微软的规定，非https只返回错误，我也不想。</dd>
@@ -62,7 +68,7 @@
 		<dd>列表模式下：点左上角那个选中全部的复选框就行了。</dd>
 		<dt>如何收回我授予的权限？</dt>
 		<dd>访问微软账户<a href="https://account.live.com/consent/Manage" target="_blank">你已授予访问权限的应用和服务</a>删除即可。</dd>
-		<dt>没有“公开”文件夹怎么办？</dt>
+		<dt id="no-public">没有“公开”文件夹怎么办？</dt>
 		<dd>好像现在的新账号已经没有公开文件夹了。就需要麻烦点，添加访问通行证。<br>
 			选中需要共享的文件夹，点击嵌入<br>
 			<img src="images/Image 29.png" alt="点击嵌入"/><br>

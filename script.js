@@ -291,7 +291,7 @@ function showMask(str,file,index) {
 	return newTxt;
 }
 
-let redata;//储存返回的数据
+let redata = null;//储存返回的数据
 
 window.onload = function() //网页加载初始化
 {

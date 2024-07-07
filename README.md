@@ -16,13 +16,23 @@ https://mapaler.github.io/GetOneDriveDirectLink/
 
 # 如何自行搭建
 
+## 文件选取器 v8 教程
+
+我不想注册收费的 Azure，所以只提到在原有 v7.2 上的变化。注册 Azure 的流程区别请自己想办法了。
+
+1. 身份验证不能用 Web ，得改成单页应用程序，不然会报错：[The provided request must include a 'client_secret' input parameter in the sample project](https://github.com/Azure-Samples/ms-identity-javascript-react-spa-dotnetcore-webapi-obo/issues/30)  
+![身份验证](document/authentication-v8.png)
+2. 应用 ID，替换本程序 `scripts/auth.js` 内的 `msalParams.auth.clientId`。
+
+## JavaScript SDK v7.2 教程
+
 2024年7月8日 目前时间点登录会显示以下警告，也就是需要迁移到收费的 Azure，我不想搞，所以以下自行搭建教程已不适用于目前的内容，就这样将就着用吧。
 
 > 自 2020 年 6 月 30 日起，我们将不再向 Azure Active Directory 身份验证库(ADAL)和 Azure Active Directory Graph 添加任何新功能。我们将继续提供技术支持和安全更新程序，但将不再提供功能更新。应用程序将需要升级到 Microsoft 身份验证库(MSAL)和 Microsoft Graph。[了解更多信息](https://go.microsoft.com/fwlink/?linkid=2132805)
 
 > 这些应用程序与帐户 xxxx@outlook.com 关联，但不包含在任何目录中。在目录外部创建应用程序的功能已被弃用。你可通过加入 [M365 开发人员计划](https://aka.ms/joinM365DeveloperProgram)或[注册 Azure](https://aka.ms/signUpForAzure) 来获取新目录。[了解详细信息](https://aka.ms/MsaDeprecateInfo)
 
-原 JavaScript SDK v7.2 教程
+### 原内容
 
 >按照[OneDrive file picker SDK](https://docs.microsoft.com/onedrive/developer/controls/file-pickers/js-v72/)内的说明进行，由于旧有的*Microsoft 应用注册门户*已经迁移到*Azure门户*，特此做出更新，此版本更新于2020年2月6日。
 
