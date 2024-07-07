@@ -2,6 +2,8 @@
 ===========
 本应用的目的是为了**批量**获取 OneDrive 直链，方便在其他站点外链。前身为[提取OneDrive直链地址工具](http://bbs.comicdd.com/thread-354826-1-1.html)的网页版，因为原来的工具失效了，软件版也不是那么好用了，因此决定使用 OneDrive 官方 SDK 来进行获取，确保不失效。 
 
+2024年7月8日 以前的 SDK v7.2 好像用不了了，切换 SDK 到 v8 版本，只能获取到基本信息了。找了很久也不知道怎么获取更多的文件信息，就这样将就着用吧。
+
 # 马上使用
 https://mapaler.github.io/GetOneDriveDirectLink/
 
@@ -9,12 +11,21 @@ https://mapaler.github.io/GetOneDriveDirectLink/
 
 # 隐私声明
 
-使用微软官方 [OneDrive file picker SDK](https://docs.microsoft.com/onedrive/developer/controls/file-pickers/js-v72/)，本应用不会得到你的账号密码和其他用户资料。
+使用微软官方 [文件选取器 v8](https://learn.microsoft.com/zh-cn/onedrive/developer/controls/file-pickers/)，本应用不会得到你的账号密码和其他用户资料。
 目前仅申请了 `Files.Read`、`Files.Read.Selected` 两个权限，SDK 只会返回用户选择的文件的信息，不会获得未授权的其他内容。  
 
-
 # 如何自行搭建
+
+2024年7月8日 目前时间点登录会显示以下警告，也就是需要迁移到收费的 Azure，我不想搞，所以以下自行搭建教程已不适用于目前的内容，就这样将就着用吧。
+
+> 自 2020 年 6 月 30 日起，我们将不再向 Azure Active Directory 身份验证库(ADAL)和 Azure Active Directory Graph 添加任何新功能。我们将继续提供技术支持和安全更新程序，但将不再提供功能更新。应用程序将需要升级到 Microsoft 身份验证库(MSAL)和 Microsoft Graph。[了解更多信息](https://go.microsoft.com/fwlink/?linkid=2132805)
+
+> 这些应用程序与帐户 xxxx@outlook.com 关联，但不包含在任何目录中。在目录外部创建应用程序的功能已被弃用。你可通过加入 [M365 开发人员计划](https://aka.ms/joinM365DeveloperProgram)或[注册 Azure](https://aka.ms/signUpForAzure) 来获取新目录。[了解详细信息](https://aka.ms/MsaDeprecateInfo)
+
+原 JavaScript SDK v7.2 教程
+
 >按照[OneDrive file picker SDK](https://docs.microsoft.com/onedrive/developer/controls/file-pickers/js-v72/)内的说明进行，由于旧有的*Microsoft 应用注册门户*已经迁移到*Azure门户*，特此做出更新，此版本更新于2020年2月6日。
+
 1. 应用注册  
 在 [Azure 门户](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) 创建应用，自己申请一个应用 ID，然后替换本程序 `script.js` 内底部的 `clientId`。  
 ![客户端ID](document/clientID.png)  
@@ -34,6 +45,9 @@ https://mapaler.github.io/GetOneDriveDirectLink/
 访问 `onedrive.live.com` 域名需要翻墙，但是生成的 `storage.live.com` 链接不需要。
 
 ### 1drv.ws 原理
+
+> 由于 *1drv.ws* 项目自身停止运行，已删除对此功能的支持
+
 **1drv.ws** 是 *[The OneDrive Direct Download Link Helper](//github.com/aploium/OneDrive-Direct-Link)* 项目的实现。  
 原理为
 1. 获取OneDrive的分享链接 `https://1drv.ms/u/分享ID`
