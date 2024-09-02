@@ -301,13 +301,13 @@ window.onload = function() //网页加载初始化
 	outinfo = document.querySelector(".outinfo");
 	outcontent = document.querySelector(".outcontent");
 
-	if (location.protocol !="https:" && location.hostname !="localhost" && location.hostname != "")
-	{
-		const goto = confirm("检测到你正在使用http模式，本应用要求使用https模式。\n是否自动跳转？");
-		if (goto) {
-			location.protocol = "https:";
-		}
-	}
+	// if (location.protocol !="https:" && (location.hostname !="localhost" && location.hostname !="127.0.0.1") && location.hostname != "")
+	// {
+	// 	const goto = confirm("检测到你正在使用http模式，本应用要求使用https模式。\n是否自动跳转？");
+	// 	if (goto) {
+	// 		location.protocol = "https:";
+	// 	}
+	// }
 	
 	load_mask_local();
 

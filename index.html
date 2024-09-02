@@ -59,26 +59,44 @@
 		<dt>如何书写掩码？</dt>
 		<dd>使用 ES6 原生<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Template_literals">模板字符串</a> ${表达式} 书写方式。
 			“file”表示该文件信息，“index”表示在获取列表中的序号，具体的JSON对象会在获取数据后发送到控制台（或查看全局变量 redata ），需要更多信息的的自己去看吧。</dd>
-		<dt>为什么这个应用必须要在https下运行？</dt>
-		<dd>微软的规定，非https只返回错误，我也不想。</dd>
 		<dt>为什么要把文件放在“公开”文件夹？</dt>
 		<dd>新版OneDrive只有“公开”文件夹（含子文件夹）的权限才是“所有人”，其他文件夹分享必须登录才能看到，无法成功外链。</dd>
+		<dt id="no-public">没有“公开”文件夹怎么办？</dt>
+		<dd>好像现在的新账号已经没有公开文件夹了。就需要麻烦点，添加访问通行证。<br>
+			<details>
+				<summary>有<strong>嵌入</strong>相册按钮</summary>
+				选中需要共享的文件夹，点击嵌入<br>
+				<img src="images/Image 29.png" alt="点击嵌入"/><br>
+				在右方复制authkey及其值。将来这个文件夹内的文件及子文件夹都只需要这同一个通行码。<br>
+				<img src="images/Image 30.png" alt="复制authkey"/><br>
+				如果忘记，可以点击右上角信息符号，查看共享链接<br>
+				<img src="images/Image 31.png" alt="查看信息"/>
+			</details>
+			<details>
+				<summary>通过<strong>共享</strong>连接获取</summary>
+				选中需要共享的文件夹，点击共享<br>
+				<img src="images/share-1.webp" alt="点击共享"/><br>
+				因为不希望被其他人编辑，修改权限。<br>
+				<img src="images/share-2.webp" alt="编辑权限"/><br>
+				设定为与任何人共享，仅查看，点击应用<br>
+				<img src="images/share-3.webp" alt="设定权限"/><br>
+				复制生成的共享连接<br>
+				<img src="images/share-4.webp" alt="复制链接"/><br>
+				如果忘记了复制，可以在<strong>文件夹详细信息-管理访问权限-链接</strong>可以重新获得之前生成的链接<br>
+				<img src="images/share-4-2.webp" alt="重新找回链接"/><br>
+				直接在地址栏访问链接<br>
+				<img src="images/share-5.webp" alt="访问链接"/><br>
+				在跳转到的新地址里复制 <strong>authkey</strong><br>
+				<img src="images/share-6.webp" alt="复制authkey"/><br>
+			</details>
+			把authkey及其值加入到x外链地址掩码最后面，作为链接的参数，格式为“?authkey=xxxxxxx”<br>
+			<img src="images/Image 32.png" alt="修改掩码"/><br>
+		</dd>
 		<dt>OneDrive窗口里如何全选？</dt>
 		<dd>磁贴模式下：选中第一个，拉到底下，按住Shift点击最后一个，中间的就会自动选上了。</dd>
 		<dd>列表模式下：点左上角那个选中全部的复选框就行了。</dd>
 		<dt>如何收回我授予的权限？</dt>
 		<dd>访问微软账户<a href="https://account.live.com/consent/Manage" target="_blank">你已授予访问权限的应用和服务</a>删除即可。</dd>
-		<dt id="no-public">没有“公开”文件夹怎么办？</dt>
-		<dd>好像现在的新账号已经没有公开文件夹了。就需要麻烦点，添加访问通行证。<br>
-			选中需要共享的文件夹，点击嵌入<br>
-			<img src="images/Image 29.png" alt="点击嵌入"/><br>
-			在右方复制authkey及其值。将来这个文件夹内的文件及子文件夹都只需要这同一个通行码。<br>
-			<img src="images/Image 30.png" alt="复制authkey"/><br>
-			如果忘记，可以点击右上角信息符号，查看共享链接<br>
-			<img src="images/Image 31.png" alt="查看信息"/><br>
-			把authkey及其值加入到x外链地址掩码最后面，作为链接的参数，格式为“?authkey=xxxxxxx”<br>
-			<img src="images/Image 32.png" alt="修改掩码"/><br>
-		</dd>
 	</dl>
 	</p>
 

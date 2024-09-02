@@ -1,5 +1,15 @@
 @charset "utf-8";
-/* CSS Document */
+img {
+		border-width: 1px;
+		border-color: black;
+		border-style: solid;
+}
+details>summary {
+	cursor: pointer;
+}
+details>summary:hover {
+	background-color: #bbb;
+}
 h1 {
 	text-align: center;
 }
